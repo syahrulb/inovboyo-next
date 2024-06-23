@@ -19,7 +19,6 @@ export default function MainMenu() {
   const onNodeUpdate = (trigger, itemValue) => {
     if (trigger && list && value === itemValue) {
       const triggerOffsetLeft = trigger.offsetLeft + trigger.offsetWidth / 6;
-
       setOffset(Math.round(triggerOffsetLeft));
     } else if (value === "") {
       setOffset(null);
@@ -39,24 +38,38 @@ export default function MainMenu() {
         >
           {menus?.map((item, index) => (
             <NavigationMenu.Item key={`item-${index}`} value={item}>
-              <NavigationMenu.Trigger
-                ref={(node) => onNodeUpdate(node, item)}
-                asChild
-                className=" flex items-center"
-              >
-                <div className=" flex items-center  py-4 cursor-pointer group data-[state=open]:text-primary">
-                  <item.icon className="h-5 w-5 mr-2" />
-                  <span className="text-sm font-medium text-default-700">
-                    {item.title}
-                  </span>
-                  {item.child?.length > 0 && (
-                    <ChevronDown
-                      className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180"
-                      aria-hidden="true"
-                    />
-                  )}
-                </div>
-              </NavigationMenu.Trigger>
+              {item.child && item.child.length > 0 ? (
+                <NavigationMenu.Trigger
+                  ref={(node) => onNodeUpdate(node, item)}
+                  asChild
+                  className=" flex items-center"
+                >
+                  <div className=" flex items-center  py-4 cursor-pointer group data-[state=open]:text-primary">
+                    <item.icon className="h-5 w-5 mr-2" />
+                    <span className="text-sm font-medium text-default-700">
+                      {item.title}
+                    </span>
+                    {item.child?.length > 0 && (
+                      <ChevronDown
+                        className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180"
+                        aria-hidden="true"
+                      />
+                    )}
+                  </div>
+                </NavigationMenu.Trigger>
+              ) : (
+                <NavigationMenu.Item>
+                  <NavigationMenu.Link href={item.href}>
+                    <div className=" flex items-center  py-4 cursor-pointer group data-[state=open]:text-primary">
+                      <item.icon className="h-5 w-5 mr-2" />
+                      <span className="text-sm font-medium text-default-700">
+                        {item.title}
+                      </span>
+                    </div>
+                  </NavigationMenu.Link>
+                </NavigationMenu.Item>
+              )}
+              {/* ini bagian child */}
               <NavigationMenu.Content
                 className={cn(
                   "w-full  rounded-md border bg-popover text-popover-foreground shadow-lg   "

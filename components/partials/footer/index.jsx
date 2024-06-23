@@ -85,13 +85,13 @@ const FooterContent = () => {
     <div className="block md:flex md:justify-between text-muted-foreground">
       <p className="sm:mb-0 text-xs md:text-sm">Website INOVBOYO 2024</p>
       <p className="mb-0 text-xs md:text-sm">
-        Hand-crafted & Made by{" "}
+        Created By{" "}
         <a
           className="text-primary"
           target="__blank"
-          href="https://codeshaper.net"
+          href="https://bappedalitbang.surabaya.go.id"
         >
-          Codeshaper
+          BAPPEDALITBANG Kota Surabaya
         </a>
       </p>
     </div>

@@ -27,6 +27,9 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        "inovboyo-card": "url('/images/bg/background-inovboyo.webp')",
+      },
       colors: {
         border: "hsl(var(--border) / <alpha-value>)",
         default: {

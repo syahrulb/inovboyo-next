@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-
+import { getImageProps } from "next/image";
 const Card = React.forwardRef(({ className, ...props }, ref) => (
   <div
     ref={ref}
@@ -57,7 +57,16 @@ const CardFooter = React.forwardRef(({ className, ...props }, ref) => (
   />
 ));
 CardFooter.displayName = "CardFooter";
-
+const getBackgroundImage = (srcSet = "") => {
+  const imageSet = srcSet
+    .split(", ")
+    .map((str) => {
+      const [url, dpi] = str.split(" ");
+      return `url("${url}") ${dpi}`;
+    })
+    .join(", ");
+  return `image-set(${imageSet})`;
+};
 export {
   Card,
   CardHeader,
@@ -65,4 +74,5 @@ export {
   CardTitle,
   CardDescription,
   CardContent,
+  getBackgroundImage,
 };

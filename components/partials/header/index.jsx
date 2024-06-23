@@ -15,6 +15,7 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import MobileMenuHandler from "./mobile-menu-handler";
 import ClassicHeader from "./layout/classic-header";
 import FullScreen from "./full-screen";
+import Link from "next/link";
 
 const NavTools = ({ isDesktop, isMobile, sidebarType }) => {
   return (
@@ -22,9 +23,12 @@ const NavTools = ({ isDesktop, isMobile, sidebarType }) => {
       {/* {isDesktop && <Language />} */}
       {isDesktop && <FullScreen />}
       <ThemeButton />
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-        login
-      </button>
+
+      <Link href="/auth/login" className="text-primary">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+          login
+        </button>
+      </Link>
       {/* <Inbox /> */}
       {/* <NotificationMessage /> */}
 

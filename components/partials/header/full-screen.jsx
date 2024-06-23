@@ -38,7 +38,6 @@ function FullScreenToggle() {
   };
 
   return (
-
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
@@ -53,12 +52,12 @@ function FullScreenToggle() {
             <Expand className="h-5 w-5" />
           </Button>
         </TooltipTrigger>
-        <TooltipContent>
+        <TooltipContent side="left">
           <TooltipArrow className="fill-primary" />
           <p>Full Screen</p>
         </TooltipContent>
       </Tooltip>
-    </TooltipProvider >
+    </TooltipProvider>
   );
 }
 
