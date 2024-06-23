@@ -11,7 +11,7 @@ const horizontalHeader = ({ handleOpenSearch }) => {
             <SiteLogo className="h-12 w-12" />
             <span className=" text-xl font-semibold lg:inline-block hidden">
               {" "}
-              INOVBOYO
+              Penelitian dan Pengembangan Kota Surabaya
             </span>
           </Link>
         </div>
